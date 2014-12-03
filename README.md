@@ -33,6 +33,12 @@ I'm not too big of a fan of MongoDB due to db locking and how clustering works, 
 
 For now, Redis is an ancillary component required by Kue. However, it could be later used for caching.
 
+## Milestones
+
+1. Reservoir capacity data.
+2. Presentation page for the platform.
+3. Get it hosted somewhere.
+
 ## Requirements
 Until a Docker container is released, a developer needs to have the following pre-requisites installed:
 

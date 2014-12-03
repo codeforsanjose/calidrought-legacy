@@ -10,7 +10,7 @@ There are some open source projects that do take advantage of what is openly pub
 
 While data visualization and analytics could potentially be a goal for this project, the primary priority is making applications like the aforementioned project easier to build.
 
-## Technology stack (rough draft)
+## Technology stack
 * Node
 * R
 * Kue
@@ -18,42 +18,42 @@ While data visualization and analytics could potentially be a goal for this proj
 * MongoDB
 * Redis
 
-## Overall idea
+### Why
+I chose nodejs for multiple reasons; the popularity of the language makes developers easier to find, the language's emphasis on web technologies should make API development easier, and it's webscale - which is the most important aspect.
 
-LoopBack is an API framework that has a bunch of features and stuff. There are a lot of Node frameworks that can be used to create an API. Express, Sails, Hapi, etc. I settled on LoopBack after reading several positive reviews. 
+The R language is excellent for handling raw data and doing any sort of statistical computing. My aim is for each module of code that collects and processing data to be segregated from the main platform and to be executed off a queue and within a child process. R could make that process easier.
 
-Kue will execute the preprocessors on a timer - pulling data into mongo.
+If a front-end application is developed as part of the platform then R could make the generation of pretty graphs easier using something like [rio](https://github.com/albertosantini/node-rio).
 
-Redis is ancillary and just plain awesome.
+Kue is used to handle jobs related to data collection and processing.
 
-## How to contribute
+LoopBack is an API framework. It's based off of Express and comes with a lot of tools for code generation and API visualization. The StrongLoop project also gives an avenue for pulling in some utilities that monitor application performance and providing other goodies.
 
-There are a few ways to contribute:
+I'm not too big of a fan of MongoDB due to db locking and how clustering works, but it just has so much support and guides within the nodejs community that it's hard to ignore.
 
-* Data preprocessors / web scrapers / data storage
-* API development
-* Operations
-* Teaching
-* Organization
-* Documentation
-* Donations
+For now, Redis is an ancillary component required by Kue. However, it could be later used for caching.
 
-### Preprocessors and web scrapers
-There are going to be two languages used for this project: Node and R. The API platform is going to be written in Node and data processing is handled by either R or Node depending on contributor preference.
+## Requirements
+Until a Docker container is released, a developer needs to have the following pre-requisites installed:
 
-Data will need to be fetched from various sources, processed into JSON, and stored in a database. Each individual processor will be executed by [kue](https://github.com/learnboost/kue). Abstractions for handling data can be moved to a library.
+* Node
+* NPM
 
-### API development
-API development and preprocessors will be linked when new models are created for the storage layer so there will be some overlap. However, there will be API specific tasks like implementing OAuth and key management.
+**Future requirements**
 
-### Operations
-Developing an application is one thing, getting it to work well when deployed is another. Docker container support, HAProxy implementation, Chef cookbook, Boxen recipe for a dev environment, continuous integration and deployment, external services, etc.
+* Redis
+* MongoDB
 
-### Teaching
-This project is generating a lot of interest and, because of that interest, beginner developers want to contribute. If you're in the bay area and wish to help out with teaching developers how to do X, Y, and Z then you're more than welcome to do so. I don't mind coordinating efforts.
+Note, I might use a mongo as a service instead of requiring a local install.
 
-### Organization
-Carve out responsibility for an area of the application, get people together for hacking sessions, etc. Overlaps with teaching.
+## Usage
+Install node packages:
+```
+npm install
+```
+Start the application:
+```
+slc run
+```
 
-### Documentation
-For the most part, documentation should be written alongside the code that a  contributor is working on. However, the world isn't perfect. If documentation is needed then tickets will be created to address the neglect.
+Navigate to http://localhost/explorer to view API routes.

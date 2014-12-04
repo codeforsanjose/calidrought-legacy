@@ -1,0 +1,40 @@
+{
+  "name": "station",
+  "plural": "stations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "stationID": {
+      "type": "string",
+      "required": true
+    },
+    "riverBasin": {
+      "type": "string"
+    },
+    "hydrologicArea": {
+      "type": "string"
+    },
+    "location": {
+      "type": "geopoint"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "elevation": {
+      "type": "number"
+    },
+    "county": {
+      "type": "string"
+    },
+    "nearbyCity": {
+      "type": "string"
+    },
+    "dataCollection": {
+      "type": "any"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

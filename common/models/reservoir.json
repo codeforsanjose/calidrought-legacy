@@ -1,0 +1,51 @@
+{
+  "name": "reservoir",
+  "plural": "reservoirs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "stationID": {
+      "type": "string",
+      "required": true
+    },
+    "streamName": {
+      "type": "string"
+    },
+    "lakeName": {
+      "type": "string"
+    },
+    "damName": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "number"
+    },
+    "yearBuilt": {
+      "type": "date"
+    },
+    "yearFilled": {
+      "type": "date"
+    },
+    "startYearAvg": {
+      "type": "date"
+    },
+    "endYearAvg": {
+      "type": "date"
+    },
+    "monthlyAvgs": {
+      "type": [
+        "number"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "station": {
+      "type": "belongsTo",
+      "model": "station",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

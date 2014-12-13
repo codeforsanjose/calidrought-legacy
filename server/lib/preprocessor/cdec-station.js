@@ -8,8 +8,8 @@ module.exports = {
    * @param {String} url
    * @return {JSON} metadata
    */
-  function fetchStation(url, callback) {
-  }
+  fetchStation: function(url, callback) {
+  },
 
   /**
    * Fetch a list of station IDs
@@ -17,14 +17,14 @@ module.exports = {
    * @param {String} url
    * @return {Array} ids
    */
-  function fetchStationIDList(url, callback) {
-  }
+  fetchStationIDList: function(url, callback) {
+  },
 
   /**
    * Stores station metadata in MongoDB
    *
    * @param {JSON} json
    */
-  function storeStation() {
+  storeStation: function() {
   }
-}
+};

@@ -1,5 +1,6 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var kue = require('kue');
 
 var app = module.exports = loopback();
 

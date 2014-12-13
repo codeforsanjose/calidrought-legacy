@@ -4,7 +4,8 @@
   "repository": "https://github.com/codeforsanjose/calidrought",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint ."
+    "test": "mocha ./server --recursive",
+    "pretest": "jshint ./server"
   },
   "dependencies": {
     "chai": "^1.10.0",

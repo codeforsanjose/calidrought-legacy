@@ -12,24 +12,15 @@ While data visualization and analytics could potentially be a goal for this proj
 
 ## Technology stack
 * Node
-* R
 * Kue
-* LoopBack
+* Express
 * MongoDB
 * Redis
 
 ### Why
 I chose nodejs for multiple reasons; the popularity of the language makes developers easier to find, the language's emphasis on web technologies should make API development easier, and it's webscale - which is the most important aspect.
 
-The R language is excellent for handling raw data and doing any sort of statistical computing. My aim is for each module of code that collects and processing data to be segregated from the main platform and to be executed off a queue and within a child process. R could make that process easier.
-
-If a front-end application is developed as part of the platform then R could make the generation of pretty graphs easier using something like [rio](https://github.com/albertosantini/node-rio).
-
 Kue is used to handle jobs related to data collection and processing.
-
-LoopBack is an API framework. It's based off of Express and comes with a lot of tools for code generation and API visualization. The StrongLoop project also gives an avenue for pulling in some utilities that monitor application performance and providing other goodies.
-
-I'm not too big of a fan of MongoDB due to db locking and how clustering works, but it just has so much support and guides within the nodejs community that it's hard to ignore.
 
 For now, Redis is an ancillary component required by Kue. However, it could be later used for caching.
 
@@ -51,14 +42,3 @@ Until a Docker container is released, a developer needs to have the following pr
 * MongoDB
 
 Note, I might use a mongo as a service instead of requiring a local install.
-
-## Usage
-Install node packages:
-```
-npm install
-```
-Start the application:
-```
-slc run
-```
-Navigate to [http://localhost:3000/explorer](http://localhost:3000/explorer) to view API routes.

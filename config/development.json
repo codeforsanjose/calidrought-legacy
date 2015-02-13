@@ -1,0 +1,13 @@
+{
+  "dbConfig": {
+    "host": "localhost",
+    "port": "27017"
+  },
+  "endpoint": {
+    "cdec": {
+      "base": "http://cdec.water.ca.gov/",
+      "station": "cgi-progs/staMeta?station_id=",
+      "stations": "misc/monthl_res.html"
+    }
+  }
+}

@@ -61,5 +61,4 @@ Start the application:
 ```
 slc run
 ```
-
-Navigate to http://localhost/explorer to view API routes.
+Navigate to [http://localhost:3000/explorer](http://localhost:3000/explorer) to view API routes.

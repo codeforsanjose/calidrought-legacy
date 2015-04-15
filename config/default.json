@@ -1,0 +1,25 @@
+{
+  "dbConfig": {
+    "host": "localhost",
+    "port": "27017"
+  },
+  "CDEC": {
+    "endpoints": {
+      "base": "http://cdec.water.ca.gov/",
+      "station": "cgi-progs/staMeta?station_id=",
+      "search": "cgi-progs/staSearch"
+    }
+  },
+  "hydrologicalAreas": [
+    "CENTRAL COAST",
+    "COLORADO RIVER",
+    "NORTH COAST",
+    "NORTH LAHONTAN",
+    "SACRAMENTO RIVER",
+    "SAN FRANCISCO BAY",
+    "SAN JOAQUIN RIVER",
+    "SOUTH COAST",
+    "SOUTH LAHONTAN",
+    "TULARE LAKE"
+  ]
+}

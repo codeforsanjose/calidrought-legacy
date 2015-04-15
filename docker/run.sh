@@ -6,8 +6,11 @@
 #
 # TODO: Ditch this script in favor of Fig or Docker Compose
 
-$(boot2docker start)
-$(boot2docker shellinit)
+# b2d is primarily a solution for OS X machines
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  $(boot2docker start)
+  $(boot2docker shellinit)
+fi
 
 if [ $# -eq 0 ]; then
   echo "There are two options for this script: 'devenv' or 'deploy'\n"

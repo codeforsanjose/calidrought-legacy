@@ -6,6 +6,9 @@
 #
 # TODO: Ditch this script in favor of Fig or Docker Compose
 
+$(boot2docker start)
+$(boot2docker shellinit)
+
 if [ $# -eq 0 ]; then
   echo "There are two options for this script: 'devenv' or 'deploy'\n"
   echo "Example: \n"

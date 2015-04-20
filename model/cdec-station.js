@@ -5,6 +5,8 @@ var thinky = require('thinky');
  * TODO: create the reservoir stuff :p
  *
  */
+
+
 var Station = thinky.createModel('Station', {
   id: String,
   stationID: String,
@@ -13,3 +15,7 @@ var Station = thinky.createModel('Station', {
   county: String,
   hydrologicalArea: String
 });
+
+exports.get = function (req, res) {
+  res.send(station);
+}

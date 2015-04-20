@@ -6,8 +6,7 @@ describe('station', function(){
     it('should return station metadata', function(done){
       var id = 'MEA';
 
-      station.getStation(id, function(stationData){
-        console.log(stationData);
+      station.fetchStation(id, function(stationData){
         assert.isArray(stationData);
         done();
       });
@@ -18,7 +17,7 @@ describe('station', function(){
     it('should return an array of IDs', function(done){
       var url = 'http://cdec.water.ca.gov/misc/monthly_res.html';
 
-      station.getStationIDList(url, function(ids) {
+      station.fetchStationIDList(url, function(ids) {
         assert.isArray(ids);
         done();
       });

@@ -4,7 +4,7 @@ var config = require('config'),
     thinky = require('thinky')(config.dbConfig),
     type = thinky.type;
 
-var Station = thinky.createModel('Station', {
+var StationModel = thinky.createModel('Station', {
   id:             type.string(),
   stationID:      type.string(),
   elevation:      type.number(),
@@ -15,3 +15,5 @@ var Station = thinky.createModel('Station', {
   point:          type.point(),
   operator:       type.point()
 });
+
+module.exports = StationModel;

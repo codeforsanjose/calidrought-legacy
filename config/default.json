@@ -1,16 +1,16 @@
 {
   "dbConfig": {
     "host": "localhost",
-    "port": "27017"
+    "port": "28015"
   },
   "CDEC": {
     "endpoints": {
       "base": "http://cdec.water.ca.gov/",
       "station": "cgi-progs/staMeta?station_id=",
-      "search": "cgi-progs/staSearch"
+      "hydroUrl": "cgi-progs/staSearch?&hydro_chk=on&hydro="
     }
   },
-  "hydrologicalAreas": [
+  "hydroAreas": [
     "CENTRAL COAST",
     "COLORADO RIVER",
     "NORTH COAST",

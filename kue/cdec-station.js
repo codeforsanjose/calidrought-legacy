@@ -13,21 +13,28 @@
  * jobs based on the contents of that page. That way we can chunkify
  * the collection jobs.
  *
+ * This piece is the start of that with an individual job
+ *
  */
 
 var kue = require('kue'),
     station = require('../lib/preprocessor/cdec-station.js'),
     jobs = kue.createQueue();
 
-/**
- * A master job to kick off several child jobs
- *
- *
- */
-jobs.process('cdecStationsFromHydro', 1, function() {
-  var hydrologicalAreas = config.get('hydrologicalAreas');
+var CDECJobs = module.exports = {
+  createCDECJob: function(stationID) {
+    var job = jobs.create('cdec-station', {
+          title: 'collect cdec station metadata',
+          stationID: stationID
 
-  for (var i in hydrologicalAreas); i++) {
-    station.createQueueStationsFromHydroJob(hydrologicalArea[i]);
+      } ).on( 'complete', function() {
+        console.log( 'job complete' );
+
+      } ).on( 'failed', function() {
+        console.log( 'job failed' );
+
+      } ).save( function(err){
+          if( !err ) console.log( job.id );
+      } );
   }
-});
+};

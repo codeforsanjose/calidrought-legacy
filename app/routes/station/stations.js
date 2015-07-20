@@ -6,7 +6,7 @@ var StationModel = require('../../../model/cdec-station.js'),
     router = express.Router(),
     queue = kue.createQueue();
 
-router.get('/list', function(req, res) {
+router.get('/', function(req, res) {
   StationModel.orderBy({index: 'id'}).run().then( function(result) {
     res.send(JSON.stringify(result));
   }).error();

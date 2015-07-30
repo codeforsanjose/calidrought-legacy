@@ -39,8 +39,8 @@ A Reservoir object has the following attributes:
 + county
 + hydrologicArea
 + nearbyCity
-+ point - 
-+ operator - 
++ point - the longitude:langitude marking for where the reservoir exists
++ operator - which government entity owns the operation of the station
 
 + Parameters
     + reservoir_id: 1 (required, number) - ID of the Reservoir in form of an integer
@@ -59,28 +59,28 @@ A Reservoir object has the following attributes:
             "hydrologicArea": "",
             "nearbyCity": "SACRAMENTO",
             "point": "37.0",
-            "operator": ""
+            "operator": "US Bureau of Reclamation"
         }
 
-## Choice [/reservoirs/{reservoir_id}/choices/{choice_id}]
+## Reservoir [/reservoirs/{reservoir_id}]
 
 + Parameters
     + reservoir_id: 1 (required, number) - ID of the Reservoir in form of an integer
 
-### Vote on a Choice [POST]
+### Create a new Reservoir [POST]
 
-This action allows you to vote on a question's choice.
+This action allows you to create a new reservoir entity.
 
 + Response 201
 
     + Headers
 
-            Location: /questions/1
+            Location: /reservoirs/1
 
 ## Questions Collection [/reservoirs{?page}]
 
 + Parameters
-    + page: 1 (optional, number) - The page of questions to return
+    + page: 1 (optional, number) - The page of reservoirs to return
 
 ### List All Questions [GET]
 
@@ -88,87 +88,71 @@ This action allows you to vote on a question's choice.
 
     + Headers
 
-            Link: </questions?page=2>; rel="next"
+            Link: </reservoirs?page=2>; rel="next"
 
     + Body
 
-            [
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
-                }
-            ]
+        [
+            {
+                "id": 1,
+                "url": "/reservoirs/1",
+                "stationID": "MEA",
+                "elevation": 3700,
+                "riverBasin": "SACRAMENTO",
+                "county": "SACRAMENTO",
+                "hydrologicArea": "",
+                "nearbyCity": "SACRAMENTO",
+                "point": "37.0",
+                "operator": "US Bureau of Reclamation"
+            }
+        ]
 
-### Create a New Question [POST]
+### Create a New Reservoir [POST]
 
 You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+object containing a reservoir and attributes for that reservoir.
 
-+ question (string) - The question
-+ choices (array[string]) - A collection of choices.
++ stationID
++ elevation
++ riverBasin
++ county
++ hydrologicArea
++ nearbyCity
++ point - the longitude:langitude marking for where the reservoir exists
++ operator - which government entity owns the operation of the station
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "stationID": "MEA",
+            "elevation": 3700,
+            "riverBasin": "SACRAMENTO",
+            "county": "SACRAMENTO",
+            "hydrologicArea": "",
+            "nearbyCity": "SACRAMENTO",
+            "point": "37.0",
+            "operator": "US Bureau of Reclamation"
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /reservoir/1
 
     + Body
 
+        [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/2",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/2/choices/1",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/2/choices/2",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/2/choices/3",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/2/choices/4",
-                        "votes": 0
-                    }
-                ]
+                "id": 1,
+                "url": "/reservoirs/1",
+                "stationID": "MEA",
+                "elevation": 3700,
+                "riverBasin": "SACRAMENTO",
+                "county": "SACRAMENTO",
+                "hydrologicArea": "",
+                "nearbyCity": "SACRAMENTO",
+                "point": "37.0",
+                "operator": "US Bureau of Reclamation"
             }
+        ]

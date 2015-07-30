@@ -72,12 +72,12 @@ This action allows you to create a new station entity.
 
             Location: /stations/1
 
-## Questions Collection [/stations{?page}]
+## Stations Collection [/stations{?page}]
 
 + Parameters
     + page: 1 (optional, number) - The page of stations to return
 
-### List All Questions [GET]
+### List All Stations [GET]
 
 + Response 200 (application/json)
 

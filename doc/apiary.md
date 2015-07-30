@@ -62,11 +62,6 @@ A Reservoir object has the following attributes:
             "operator": "US Bureau of Reclamation"
         }
 
-## Reservoir [/reservoirs/{reservoir_id}]
-
-+ Parameters
-    + reservoir_id: 1 (required, number) - ID of the Reservoir in form of an integer
-
 ### Create a new Reservoir [POST]
 
 This action allows you to create a new reservoir entity.
@@ -142,17 +137,17 @@ object containing a reservoir and attributes for that reservoir.
 
     + Body
 
-        [
-            {
-                "id": 1,
-                "url": "/reservoirs/1",
-                "stationID": "MEA",
-                "elevation": 3700,
-                "riverBasin": "SACRAMENTO",
-                "county": "SACRAMENTO",
-                "hydrologicArea": "",
-                "nearbyCity": "SACRAMENTO",
-                "point": "37.0",
-                "operator": "US Bureau of Reclamation"
-            }
-        ]
+            [
+                {
+                    "id": 1,
+                    "url": "/reservoirs/1",
+                    "stationID": "MEA",
+                    "elevation": 3700,
+                    "riverBasin": "SACRAMENTO",
+                    "county": "SACRAMENTO",
+                    "hydrologicArea": "",
+                    "nearbyCity": "SACRAMENTO",
+                    "point": "37.0",
+                    "operator": "US Bureau of Reclamation"
+                }
+            ]

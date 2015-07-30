@@ -20,16 +20,16 @@ to keep your client decoupled from implementation details.
 + Response 200 (application/json)
 
         {
-            "reservoir_url": "/reservoirs"
+            "station_url": "/stations"
         }
 
-## Group Reservoir
+## Group Station
 
-Resources related to reservoirs in the API.
+Resources related to stations in the API.
 
-## Reservoir [/reservoirs/{reservoir_id}]
+## Station [/stations/{station_id}]
 
-A Reservoir object has the following attributes:
+A Station object has the following attributes:
 
 + id
 + url
@@ -39,19 +39,19 @@ A Reservoir object has the following attributes:
 + county
 + hydrologicArea
 + nearbyCity
-+ point - the longitude:langitude marking for where the reservoir exists
++ point - the longitude:langitude marking for where the station exists
 + operator - which government entity owns the operation of the station
 
 + Parameters
-    + reservoir_id: 1 (required, number) - ID of the Reservoir in form of an integer
+    + station_id: 1 (required, number) - ID of the Station in form of an integer
 
-### View a Reservoir Detail [GET]
+### View a Station Detail [GET]
 
 + Response 200 (application/json)
 
         {
             "id": 1,
-            "url": "/reservoirs/1",
+            "url": "/stations/1",
             "stationID": "MEA",
             "elevation": 3700,
             "riverBasin": "SACRAMENTO",
@@ -62,20 +62,20 @@ A Reservoir object has the following attributes:
             "operator": "US Bureau of Reclamation"
         }
 
-### Create a new Reservoir [POST]
+### Create a new Station [POST]
 
-This action allows you to create a new reservoir entity.
+This action allows you to create a new station entity.
 
 + Response 201
 
     + Headers
 
-            Location: /reservoirs/1
+            Location: /stations/1
 
-## Questions Collection [/reservoirs{?page}]
+## Questions Collection [/stations{?page}]
 
 + Parameters
-    + page: 1 (optional, number) - The page of reservoirs to return
+    + page: 1 (optional, number) - The page of stations to return
 
 ### List All Questions [GET]
 
@@ -83,14 +83,14 @@ This action allows you to create a new reservoir entity.
 
     + Headers
 
-            Link: </reservoirs?page=2>; rel="next"
+            Link: </stations?page=2>; rel="next"
 
     + Body
 
         [
             {
                 "id": 1,
-                "url": "/reservoirs/1",
+                "url": "/stations/1",
                 "stationID": "MEA",
                 "elevation": 3700,
                 "riverBasin": "SACRAMENTO",
@@ -102,10 +102,10 @@ This action allows you to create a new reservoir entity.
             }
         ]
 
-### Create a New Reservoir [POST]
+### Create a New Station [POST]
 
 You may create your own question using this action. It takes a JSON
-object containing a reservoir and attributes for that reservoir.
+object containing a station and attributes for that station.
 
 + stationID
 + elevation
@@ -113,7 +113,7 @@ object containing a reservoir and attributes for that reservoir.
 + county
 + hydrologicArea
 + nearbyCity
-+ point - the longitude:langitude marking for where the reservoir exists
++ point - the longitude:langitude marking for where the station exists
 + operator - which government entity owns the operation of the station
 
 + Request (application/json)
@@ -133,14 +133,14 @@ object containing a reservoir and attributes for that reservoir.
 
     + Headers
 
-            Location: /reservoir/1
+            Location: /station/1
 
     + Body
 
             [
                 {
                     "id": 1,
-                    "url": "/reservoirs/1",
+                    "url": "/stations/1",
                     "stationID": "MEA",
                     "elevation": 3700,
                     "riverBasin": "SACRAMENTO",

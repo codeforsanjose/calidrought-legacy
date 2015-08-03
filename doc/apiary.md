@@ -133,7 +133,7 @@ object containing a station and attributes for that station.
 
     + Headers
 
-            Location: /station/1
+            Location: /stations/1
 
     + Body
 

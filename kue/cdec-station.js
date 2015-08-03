@@ -31,7 +31,7 @@ var CDECJobs = module.exports = {
    * @param {Array} hydroAreas
    */
   loadJobs: function(hydroAreas) {
-    var job = jobs.create('cdec-station-load') {
+    var job = jobs.create('cdec-station-load', {
       title: 'collect cdec stations within hydro areas',
       hydroAreas: hydroAreas
 

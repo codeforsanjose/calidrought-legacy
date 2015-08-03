@@ -6,11 +6,19 @@ var StationModel = require('../../../model/cdec-station.js'),
     router = express.Router(),
     queue = kue.createQueue();
 
-router.get('/', function(req, res) {
+router.get('/stations', function(req, res) {
   StationModel.orderBy({index: 'id'}).run().then( function(result) {
     res.send(JSON.stringify(result));
   }).error();
 });
+
+router.get('/stations/${station_id}', function(req, res) {
+
+)};
+
+router.post('/stations/new', function(req, res) {
+
+)};
 
 router.post('/start', function(req, res) {
   CDECJobs.createCDECJob('MEA');

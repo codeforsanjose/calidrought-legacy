@@ -6,7 +6,7 @@ var config = require('config'),
 
 var StationModel = thinky.createModel('Station', {
   id:             type.string(),
-  url:            type.string(), 
+  url:            type.string(),
   stationID:      type.string(),
   elevation:      type.number(),
   riverBasin:     type.string(),
@@ -15,6 +15,8 @@ var StationModel = thinky.createModel('Station', {
   nearbyCity:     type.string(),
   point:          type.point(),
   operator:       type.point()
+}, {
+  pk: 'stationID'
 });
 
 module.exports = StationModel;

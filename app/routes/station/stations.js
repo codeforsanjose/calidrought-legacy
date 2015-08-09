@@ -7,21 +7,27 @@ var StationModel = require('../../../model/cdec-station.js'),
     queue = kue.createQueue();
 
 router.get('/', function(req, res) {
-  StationModel.orderBy({index: 'id'}).run().then( function(result) {
+  StationModel.orderBy({index: 'stationID'}).run().then( function(result) {
     res.json(result);
-  }).error();
+  }).error( function(error) {
+    res.status(500).send({error: error.message});
+  });
 });
 
 router.get('/:id', function(req, res) {
   StationModel.get(req.params.id).then( function(station) {
     res.json(station);
-  }).error();
+  }).error( function(error) {
+    res.status(500).send({error: error.message});
+  });
 });
 
 router.put('/:id', function(req, res) {
-});
-
-router.delete('/:id', function(req, res) {
+  StationModel.get(req.params.id).update(req.body).run().then( function(station) {
+    res.json(req.body);
+  }).error( function(error) {
+    res.status(500).send({error: error.message});
+  });
 });
 
 router.post('/new', function(req, res) {
@@ -29,8 +35,15 @@ router.post('/new', function(req, res) {
   var station = new StationModel(
     stationData
   );
+
+  try{
+    station.validate()
+  } catch(error) {
+    res.status(500).send({error: error.message});
+  }
+
   station.save();
-  res.send('hello');
+  res.json(station);
 });
 
 router.post('/start', function(req, res) {

@@ -5,16 +5,15 @@ var config = require('config'),
     type = thinky.type;
 
 var StationModel = thinky.createModel('Station', {
-  id:             type.string(),
-  url:            type.string(),
   stationID:      type.string(),
+  url:            type.string(),
   elevation:      type.number(),
   riverBasin:     type.string(),
   county:         type.string(),
   hydrologicArea: type.string(),
   nearbyCity:     type.string(),
   point:          type.point(),
-  operator:       type.point()
+  operator:       type.string()
 }, {
   pk: 'stationID'
 });

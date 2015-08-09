@@ -4,7 +4,7 @@ calidrought
 An API platform for aggregating data on the California drought.
 
 ## Foreward: Goal of the Project
-Calidrought is an ambitious project being undertaken by the [Code for San Jose civic hacking group](http://codeforsanjose.com/). The aim of the project is to provide easier access to data on the California drought. There are multiple data sources that provide information on the status of the drought but said data is hard to collect, parse, and utilize in a meaningful way.
+Calidrought is an ambitious project being undertaken by myself. The aim of the project is to provide easier access to data on the California drought. There are multiple data sources that provide information on the status of the drought but said data is hard to collect, parse, and utilize in a meaningful way.
 
 There are some open source projects that do take advantage of what is openly published by government agencies and this project is inspired by them. The most impressive project I have seen so far is [a drought visualization application](https://github.com/USGS-CIDA/CIDA-Viz) coming out of the Center for Integrated Data Analytics.
 
@@ -33,15 +33,13 @@ For now, Redis is an ancillary component required by Kue. However, it could be l
 ## Requirements
 Until a Docker container is released, a developer needs to have the following pre-requisites installed:
 
-* Node v0.12.0
+* Node v0.12.X
 * NPM
 
 ## Getting Started
+* There is a dev env Docker container that I've tested on OS X and Linux hosts. The init scripts for building and entering the container are written in bash so Windows portability is questionable. However, there is a boot2docker release for Windows but it looks like there is work needed for volume mounting.
+* Starting and running the app is within the conventions of a stardard Express app. I.e, ```npm start``` will launch the application.
+=======
 See the [contributing](https://github.com/howdoicomputer/calidrought/wiki/Contributing) wiki article.
-
-**Future requirements**
-
-* Redis
-* RethinkDB
 
 Be sure to check the wiki since I will put most project information there.

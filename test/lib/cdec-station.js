@@ -1,38 +1,40 @@
+var _ = require('lodash');
 var assert = require('chai').assert;
-station = require('../../lib/preprocessor/cdec-station.js');
+var cdec = require('../../lib/preprocessor/cdec-station.js');
 
-describe('station', function(){
+describe('CDEC', function(){
   describe('#fetchStation()', function(){
     it('should return station metadata', function(done){
       var id = 'MEA';
 
-      station.fetchStation(id, function(stationData){
-        console.log(stationData);
-        assert.isArray(stationData);
+      cdec.fetchStation(id, function(stationData){
+          var fixture = {
+            'Station ID':      'MEA',
+            'Elevation':       '3700\' ft',
+            'River Basin':     'COLORADO R',
+            'County':          'State of Arizona',
+            'Hydrologic Area': 'COLORADO RIVER'
+          };
+
+        assert.isObject(stationData);
+        assert.deepEqual(stationData, fixture);
+
         done();
       });
     });
   });
 
-  describe('#fetchStationIDList()', function(){
-    it('should return an array of IDs', function(done){
-      var url = 'http://cdec.water.ca.gov/misc/monthly_res.html';
+  describe('#fetchHydroAreaIDList()', function(){
+    it('should return IDs from a hydro search', function(done){
+      var hydroArea = 'CENTRAL COAST';
 
-      station.fetchStationIDList(url, function(ids) {
-        assert.isArray(ids);
+      cdec.fetchHydroAreaIDList(hydroArea, function(stationIDs){
+        _.map(stationIDs, function(id){
+          assert.match(id, /^[A-Z]{3}$/);
+        });
+
         done();
       });
-    });
-  });
-
-  describe('#parseStation()', function(){
-    it('should parse a station metadata table', function(done){
-      
-
-  describe('#storeStation()', function(){
-    it('should store a station in mongo', function(){
-      //station.storeStation();
     });
   });
 });
-

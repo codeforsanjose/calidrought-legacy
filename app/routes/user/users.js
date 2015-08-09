@@ -42,3 +42,4 @@ router.post('/new', function(req, res) {
   res.json(user);
 });
 
+module.exports = router;

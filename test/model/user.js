@@ -1,60 +1,33 @@
 var UserModel = require('../../model/user.js'),
     chai = require('chai'),
     assert = chai.assert,
+    config = require('config'),
     bcrypt = require('bcrypt');
 
-var chaiAsPromised = require("chai-as-promised");
-chai.use(chaiAsPromised);
-
 describe('UserModel', function(){
+  before(function() {
+    return new UserModel({
+      id: 'howdoicomputer',
+      email: 'howdoicomputer@fake.com',
+      password: 'supersecret',
+      admin: true
+    }).save();
+  });
 
-/*
- *  before(function(done) {
- *    var user = new UserModel({
- *      username: 'howdoicomputer',
- *      email: 'howdoicomputer@fake.com',
- *      password: 'supersecret',
- *      admin: true
- *    }).save();
- *
- *    done();
- *  });
- *
- *  after(function() {
- *    UserModel.get('howdoicomputer').then( function(user) {
- *      user.delete();
- *    });
- *  });
- *
- */
-
-  describe('it should save a user document', function(){
-    it('should save a user doc', function(done) {
-      var user = UserModel({
-        username: 'howdoicomputer',
-        email: 'howdoicomputer@fake.com',
-        password: 'supersecret',
-        admin: true
-      });
-
-      user.save().then( function(user) {
-        assert.equal(user.username, 'howdoicomputer');
-        done();
-      }).error( function(err) {
-        done(err);
-      });
-    });
+  after(function(done) {
+    UserModel.get('howdoicomputer').then( function(user) {
+      user.delete();
+      done();
+    }).catch(done);
   });
 
   describe('record retrieval', function(){
     it('should retrieve a user document', function(done){
       UserModel.get('howdoicomputer').then( function(user) {
-        assert.equal(1, 2);
-        // assert.equal(user.email, 'howdoicomputer@fake.com');
+        console.log(user);
+        assert.equal(user.email, 'howdoicomputer@fake.com');
         done();
-      }).catch(function(err) {
-        done(err);
-      });
+      }).catch(done);
     });
   });
 
@@ -66,4 +39,18 @@ describe('UserModel', function(){
       }).then(done, done);
     });
   });
+
+  describe('record updating', function(){
+    it('should update just fine', function(done){
+      UserModel.get('howdoicomputer').then( function(user) {
+        user.merge({email: 'updated@fake.com', admin: false}).save()
+          .then( function(result) {
+            console.log(result);
+            done();
+          });
+      }).catch(done);
+    });
+  });
 });
+
+

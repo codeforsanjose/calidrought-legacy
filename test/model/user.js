@@ -24,7 +24,6 @@ describe('UserModel', function(){
   describe('record retrieval', function(){
     it('should retrieve a user document', function(done){
       UserModel.get('howdoicomputer').then( function(user) {
-        console.log(user);
         assert.equal(user.email, 'howdoicomputer@fake.com');
         done();
       }).catch(done);
@@ -32,6 +31,13 @@ describe('UserModel', function(){
   });
 
   describe('password hashing', function(){
+    it('should be a bcrypt hash', function(done){
+      UserModel.get('howdoicomputer').then( function(user) {
+        assert.match(user.password, /^\$2a\$.{56}$/);
+        done();
+      }).catch(done);
+    });
+
     it('should compare stored hash to submitted pswd hash', function(done){
       UserModel.get('howdoicomputer').then( function(user) {
         result = bcrypt.compareSync('supersecret', user.password);
@@ -43,9 +49,11 @@ describe('UserModel', function(){
   describe('record updating', function(){
     it('should update just fine', function(done){
       UserModel.get('howdoicomputer').then( function(user) {
+        var passwordBefore = user.password;
         user.merge({email: 'updated@fake.com', admin: false}).save()
           .then( function(result) {
-            console.log(result);
+            var passwordAfter = result.password;
+            assert.equal(passwordBefore, passwordAfter);
             done();
           });
       }).catch(done);

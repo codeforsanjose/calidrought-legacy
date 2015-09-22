@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
       var token = jwt.sign(user, config.jwtSecret, {
         expiresInMinutes: config.jwtExpireTime
       });
-      res.json({ success: result, message: 'welcome', token });
+      res.json({ success: result, message: 'welcome', token: token });
     } else {
       res.json({ success: result, message: 'authorization failed' });
     }

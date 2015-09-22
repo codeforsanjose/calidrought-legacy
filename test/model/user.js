@@ -1,7 +1,6 @@
 var UserModel = require('../../model/user.js'),
     chai = require('chai'),
     assert = chai.assert,
-    config = require('config'),
     bcrypt = require('bcrypt');
 
 describe('UserModel', function(){
@@ -40,7 +39,7 @@ describe('UserModel', function(){
 
     it('should compare stored hash to submitted pswd hash', function(done){
       UserModel.get('howdoicomputer').then( function(user) {
-        result = bcrypt.compareSync('supersecret', user.password);
+        var result = bcrypt.compareSync('supersecret', user.password);
         assert.isTrue(result);
       }).then(done, done);
     });

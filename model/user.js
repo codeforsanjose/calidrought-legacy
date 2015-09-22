@@ -1,8 +1,7 @@
 var config = require('config'),
     thinky = require('thinky')(config.get('dbConfig')),
     bcrypt = require('bcrypt'),
-    type = thinky.type,
-    _ = require('lodash');
+    type = thinky.type;
 
 var UserModel = thinky.createModel('User', {
   id:       type.string(),

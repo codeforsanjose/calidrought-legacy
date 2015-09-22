@@ -18,6 +18,7 @@
 
     "jasmine",
     "beforeEach",
+    "before",
     "describe",
     "expect",
     "it",

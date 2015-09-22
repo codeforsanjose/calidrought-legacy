@@ -1,7 +1,8 @@
 {
   "dbConfig": {
     "host": "localhost",
-    "port": "28015"
+    "port": "28015",
+    "db": "drought"
   },
   "CDEC": {
     "endpoints": {

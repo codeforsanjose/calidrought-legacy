@@ -3,7 +3,7 @@ var UserModel = require('../../../model/user.js'),
     router = express.Router();
 
 router.get('/', function(req, res) {
-  UserModel.orderBy({index: 'username'}).run().then( function(result) {
+  UserModel.orderBy({index: 'id'}).run().then( function(result) {
     res.json(result);
   }).error( function(error) {
     res.status(500).send({error: error.message});

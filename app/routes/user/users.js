@@ -19,7 +19,7 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-  UserModel.get(req.params.id).update(req.body).run().then( function(user) {
+  UserModel.get(req.params.id).update(req.body).run().then( function() {
     res.json(req.body);
   }).error( function(error) {
     res.status(500).send({error: error.message});
@@ -27,13 +27,13 @@ router.put('/:id', function(req, res) {
 });
 
 router.post('/new', function(req, res) {
-  userData = req.body;
+  var userData = req.body;
   var user = new UserModel(
     userData
   );
 
   try{
-    user.validate()
+    user.validate();
   } catch(error) {
     res.status(500).send({error: error.message});
   }

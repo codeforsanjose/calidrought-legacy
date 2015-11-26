@@ -23,21 +23,23 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-  StationModel.get(req.params.id).update(req.body).run().then( function(station) {
-    res.json(req.body);
+  var station = StationModel.get(req.params.id);
+
+  station.update(req.body).run().then( function(station) {
+    res.json(station);
   }).error( function(error) {
     res.status(500).send({error: error.message});
   });
 });
 
 router.post('/new', function(req, res) {
-  stationData = req.body;
+  var stationData = req.body;
   var station = new StationModel(
     stationData
   );
 
   try{
-    station.validate()
+    station.validate();
   } catch(error) {
     res.status(500).send({error: error.message});
   }

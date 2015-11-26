@@ -4,7 +4,7 @@ calidrought
 An API platform for aggregating data on the California drought.
 
 ## Foreward: Goal of the Project
-Calidrought is an ambitious project being undertaken by myself. The aim of the project is to provide easier access to data on the California drought. There are multiple data sources that provide information on the status of the drought but said data is hard to collect, parse, and utilize in a meaningful way.
+Calidrought is an ambitious project being undertaken by Code for San Jose. The aim of the project is to provide easier access to data on the California drought. There are multiple data sources that provide information on the status of the drought but said data is hard to collect, parse, and utilize in a meaningful way.
 
 There are some open source projects that do take advantage of what is openly published by government agencies and this project is inspired by them. The most impressive project I have seen so far is [a drought visualization application](https://github.com/USGS-CIDA/CIDA-Viz) coming out of the Center for Integrated Data Analytics.
 
@@ -33,7 +33,7 @@ For now, Redis is an ancillary component required by Kue. However, it could be l
 ## Requirements
 Until a Docker container is released, a developer needs to have the following pre-requisites installed:
 
-* Node v0.12.X
+* Node v4.X
 * NPM
 
 ## Getting Started

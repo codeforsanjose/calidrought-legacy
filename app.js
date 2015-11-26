@@ -1,32 +1,40 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var kue = require('kue');
-var _ = require('lodash');
+var express = require('express'),
+    router = express.Router(),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    kue = require('kue'),
+    config = require('config'),
+    jwtExpress = require('express-jwt'),
+    _ = require('lodash');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app/views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'app/views'))
+   .set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'))
+   .use(bodyParser.json())
+   .use(bodyParser.urlencoded({ extended: false }))
+   .use(cookieParser())
+   .use(express.static(path.join(__dirname, 'public')));
 
-var stations = require('./app/routes/station/stations.js');
-var index = require('./app/routes/index.js');
-var users = require('./app/routes/user/users.js');
-app.use('/', index);
-app.use('/api/stations', stations);
-app.use('/api/users', users);
+var stations = require('./app/routes/station/stations.js'),
+    index = require('./app/routes/index.js'),
+    users = require('./app/routes/user/users.js'),
+    authenticate = require('./app/routes/authenticate/authenticate.js');
+
+router.use('/stations', stations)
+      .use('/users', users)
+      .use('/authenticate', authenticate);
+
+app.use('/api', router);
+app.use(jwtExpress({ secret: config.jwtSecret }).unless({path: ['/api/authenticate']}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,7 +66,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
 kue.app.listen('3001');

@@ -1,6 +1,11 @@
 {
   "dbConfig": {
     "host": "localhost",
-    "port": "28015"
-  }
+    "port": "28015",
+    "db": "drought"
+  },
+
+  "jwtSecret": "secret",
+  "jwtExpireTime": 1440,
+  "bcryptPasses": 3
 }

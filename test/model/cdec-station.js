@@ -2,8 +2,8 @@ var assert = require('chai').assert,
     StationModel = require('../../model/cdec-station.js');
 
 describe('StationModel', function(){
-  describe('record creation', function(){
-    it('should create a station record', function(done){
+  describe('document creation', function(){
+    it('should create a station document', function(done){
       var fixture = {
         stationID: 'MEA',
         elevation: 3700,

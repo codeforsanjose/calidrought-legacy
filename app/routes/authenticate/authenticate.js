@@ -8,8 +8,10 @@ var UserModel = require('../../../model/user.js'),
 
 router.post('/', function(req, res) {
   UserModel.get(req.body.username).then( function(user){
-    return [ bcrypt.compareAsync(req.body.password, user.password),
-             user ];
+    return [
+      bcrypt.compareAsync(req.body.password, user.password),
+      user
+    ];
   }).spread( function(result, user) {
     if (result) {
       var token = jwt.sign(user, config.jwtSecret, {

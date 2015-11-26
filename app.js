@@ -33,8 +33,8 @@ router.use('/stations', stations)
       .use('/users', users)
       .use('/authenticate', authenticate);
 
-app.use(jwtExpress({ secret: config.jwtSecret }).unless({path: ['/api/authenticate']}));
 app.use('/api', router);
+app.use(jwtExpress({ secret: config.jwtSecret }).unless({path: ['/api/authenticate']}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,7 +66,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
 kue.app.listen('3001');

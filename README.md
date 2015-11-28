@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/codeforsanjose/calidrought.svg?branch=production)](https://travis-ci.org/codeforsanjose/calidrought)
 [![Code Climate](https://codeclimate.com/github/codeforsanjose/calidrought/badges/gpa.svg)](https://codeclimate.com/github/codeforsanjose/calidrought)
 [![Test Coverage](https://codeclimate.com/github/codeforsanjose/calidrought/badges/coverage.svg)](https://codeclimate.com/github/codeforsanjose/calidrought/coverage)
+[![Dependency Status](https://gemnasium.com/codeforsanjose/calidrought.svg)](https://gemnasium.com/codeforsanjose/calidrought)
+[![Slack Status](https://slackin-c4sj.herokuapp.com/badge.svg)](https://slackin-c4sj.herokuapp.com/)
 
 calidrought
 ===========

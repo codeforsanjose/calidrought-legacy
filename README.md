@@ -17,6 +17,13 @@ There are some open source projects that do take advantage of what is openly pub
 
 While data visualization and analytics could potentially be a goal for this project, the primary priority is making applications like the aforementioned project easier to build.
 
+## Demo
+There is currently a demo server [running in AWS](http://ec2-54-167-131-100.compute-1.amazonaws.com/) and there is a guide on how to consume from this server [in the wiki](https://github.com/codeforsanjose/calidrought/wiki/Getting-Started-with-the-API)
+
+## API Documentation
+
+The documentation for the API is hosted by [apiary](http://docs.calidrought.apiary.io/#) and is stored in the repository [here](https://github.com/codeforsanjose/calidrought/blob/production/doc/apiary.md).
+
 ## Technology stack
 * Node
 * Kue
@@ -29,25 +36,11 @@ I chose nodejs for multiple reasons; the popularity of the language makes develo
 
 Kue is used to handle jobs related to data collection and processing.
 
-For now, Redis is an ancillary component required by Kue. However, it could be later used for caching.
+For now, Redis is an ancillary component required by Kue.
 
-## Milestones
+### Information
 
-1. Reservoir capacity data.
-2. Presentation page for the platform.
-3. Get it hosted somewhere.
-
-## Requirements
-Until a Docker container is released, a developer needs to have the following pre-requisites installed:
-
-* Node v4.X
-* NPM
-
-## Getting Started
-* There is a dev env Docker container that I've tested on OS X and Linux hosts. The init scripts for building and entering the container are written in bash so Windows portability is questionable. However, there is a boot2docker release for Windows but it looks like there is work needed for volume mounting.
-* Starting and running the app is within the conventions of a standard Express app. I.e, ```npm start``` will launch the application.
+See the wiki for more information on implementation details and how the project is ran.
 
 =======
-See the [contributing](https://github.com/howdoicomputer/calidrought/wiki/Contributing) wiki article.
-
-Be sure to check the wiki since I will put most project information there.
+See the [contribution guide](https://github.com/codeforsanjose/calidrought/wiki/Contribution-Guide) for contribution information.

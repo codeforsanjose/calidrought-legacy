@@ -3,3 +3,4 @@ app.js
 /kue/cdec-station.js
 /public
 /test/route
+/coverage

@@ -3,6 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/codeforsanjose/calidrought/badges/coverage.svg)](https://codeclimate.com/github/codeforsanjose/calidrought/coverage)
 [![Dependency Status](https://gemnasium.com/codeforsanjose/calidrought.svg)](https://gemnasium.com/codeforsanjose/calidrought)
 [![Slack Status](https://slackin-c4sj.herokuapp.com/badge.svg)](https://slackin-c4sj.herokuapp.com/)
+[![Stories in Ready](https://badge.waffle.io/codeforsanjose/calidrought.svg?label=ready&title=Ready)](http://waffle.io/codeforsanjose/calidrought)
 
 calidrought
 ===========

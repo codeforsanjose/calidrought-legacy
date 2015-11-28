@@ -11,3 +11,11 @@ before_install:
   - sudo /etc/init.d/rethinkdb restart
 before_script:
   - sudo rethinkdb --daemon
+
+addons:
+  code_climate:
+    repo_token: d6928984d10fc9add6d886040556726d92ad86a7d1efc4b448be9945962a41f9
+
+after_script:
+  - istanbul cover node_modules/mocha/bin/_mocha -- -R spec --timeout 5000
+  - codeclimate-test-reporter < coverage/lcov.info

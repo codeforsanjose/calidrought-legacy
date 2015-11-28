@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/codeforsanjose/calidrought.svg?branch=production)](https://travis-ci.org/codeforsanjose/calidrought)
+
 calidrought
 ===========
 

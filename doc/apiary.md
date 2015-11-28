@@ -66,7 +66,7 @@ A Station object has the following attributes:
 
 This action allows you to create a new station entity.
 
-+ Response 201
++ Response 201 (application/json)
 
     + Headers
 

@@ -32,7 +32,7 @@ The documentation for the API is [hosted by apiary](http://docs.calidrought.apia
 * RethinkDB
 * Redis
 
-### More Information
+## More Information
 
 See the wiki for more information on implementation details and how the project is ran.
 

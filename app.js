@@ -10,7 +10,7 @@ var express = require('express'),
     stormpath = require('express-stormpath'),
     _ = require('lodash');
 
-require('dotenv').load();
+require('dotenv').load({ silent: true });
 var app = express();
 
 // view engine setup

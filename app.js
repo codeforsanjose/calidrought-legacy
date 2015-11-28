@@ -7,9 +7,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     kue = require('kue'),
     config = require('config'),
-    jwtExpress = require('express-jwt'),
+    stormpath = require('express-stormpath'),
     _ = require('lodash');
 
+require('dotenv').load({ silent: true });
 var app = express();
 
 // view engine setup
@@ -26,15 +27,23 @@ app.use(logger('dev'))
 
 var stations = require('./app/routes/station/stations.js'),
     index = require('./app/routes/index.js'),
-    users = require('./app/routes/user/users.js'),
-    authenticate = require('./app/routes/authenticate/authenticate.js');
+    users = require('./app/routes/user/users.js');
 
-router.use('/stations', stations)
-      .use('/users', users)
-      .use('/authenticate', authenticate);
+router.use('/stations', stations);
 
-app.use('/api', router);
-app.use(jwtExpress({ secret: config.jwtSecret }).unless({path: ['/api/authenticate']}));
+app.use(stormpath.init(app, {
+  apiKeyId: process.env.STORMPATH_CLIENT_APIKEY_ID,
+  apiKeySecret: process.env.STORMPATH_CLIENT_APIKEY_SECRET,
+  application: process.env.STORMPATH_APPLICATION_HREF,
+  website: true,
+  expand: {
+    apiKeys: true
+  }
+}));
+
+app.use('/api', stormpath.apiAuthenticationRequired, router);
+app.use(users);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

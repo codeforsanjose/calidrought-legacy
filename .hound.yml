@@ -1,0 +1,5 @@
+javascript:
+  config_file: .jshintrc
+  ignore_file: .jshintignore
+
+fail_on_violations: true

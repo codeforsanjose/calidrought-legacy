@@ -1,0 +1,25 @@
+extends layout
+
+block body
+  .dashboard
+    .row
+      .col-lg-12
+        .jumbotron
+          h1 Dashboard
+          br
+          br
+          p Welcome to your user dashboard!
+          p.
+            Client ID: <span class="data">#{apiKeyId}</span>
+          p.
+            Client Secret: <span class="data">#{apiKeySecret}</span>
+          p.
+            If you click the Logout link in the navbar at the top of this page,
+            you'll be logged out of your account and redirected back to the main
+            page of this site.
+          br
+          br
+
+        include footer.jade
+        div &nbsp
+        div &nbsp

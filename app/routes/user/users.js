@@ -1,6 +1,5 @@
 var express = require('express'),
     router = express.Router(),
-    async = require('async'),
     _ = require('lodash');
 
 function render(res, pageData) {
@@ -12,7 +11,7 @@ function render(res, pageData) {
 
 router.get('/dashboard', function(req, res) {
   res.locals.user.getApiKeys(function(err, collectionResult) {
-    pageData = {};
+    var pageData = {};
     if (_.isEmpty(collectionResult.items)) {
       res.locals.user.createApiKey(function(err, apiKey) {
         pageData.apiKey = apiKey;

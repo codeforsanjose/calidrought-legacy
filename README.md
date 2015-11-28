@@ -38,7 +38,8 @@ Until a Docker container is released, a developer needs to have the following pr
 
 ## Getting Started
 * There is a dev env Docker container that I've tested on OS X and Linux hosts. The init scripts for building and entering the container are written in bash so Windows portability is questionable. However, there is a boot2docker release for Windows but it looks like there is work needed for volume mounting.
-* Starting and running the app is within the conventions of a stardard Express app. I.e, ```npm start``` will launch the application.
+* Starting and running the app is within the conventions of a standard Express app. I.e, ```npm start``` will launch the application.
+
 =======
 See the [contributing](https://github.com/howdoicomputer/calidrought/wiki/Contributing) wiki article.
 

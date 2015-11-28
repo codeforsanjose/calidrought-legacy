@@ -25,20 +25,14 @@ There is currently a demo server [running in AWS](http://ec2-54-167-131-100.comp
 The documentation for the API is [hosted by apiary](http://docs.calidrought.apiary.io/#) and is stored in the repository [here](https://github.com/codeforsanjose/calidrought/blob/production/doc/apiary.md).
 
 ## Technology stack
+
 * Node
 * Kue
 * Express
 * RethinkDB
 * Redis
 
-### Why
-I chose nodejs for multiple reasons; the popularity of the language makes developers easier to find, the language's emphasis on web technologies should make API development easier, and it's webscale - which is the most important aspect.
-
-Kue is used to handle jobs related to data collection and processing.
-
-For now, Redis is an ancillary component required by Kue.
-
-### Information
+### More Information
 
 See the wiki for more information on implementation details and how the project is ran.
 

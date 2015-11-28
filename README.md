@@ -22,7 +22,7 @@ There is currently a demo server [running in AWS](http://ec2-54-167-131-100.comp
 
 ## API Documentation
 
-The documentation for the API is hosted by [apiary](http://docs.calidrought.apiary.io/#) and is stored in the repository [here](https://github.com/codeforsanjose/calidrought/blob/production/doc/apiary.md).
+The documentation for the API is [hosted by apiary](http://docs.calidrought.apiary.io/#) and is stored in the repository [here](https://github.com/codeforsanjose/calidrought/blob/production/doc/apiary.md).
 
 ## Technology stack
 * Node

@@ -1,28 +1,26 @@
 var express = require('express'),
-    router = express.Router();
+    router = express.Router(),
+    async = require('async'),
+    _ = require('lodash');
+
+function render(res, pageData) {
+  res.render('dashboard', {
+    apiKeyId: pageData.apiKey.id,
+    apiKeySecret: pageData.apiKey.secret
+  });
+}
 
 router.get('/dashboard', function(req, res) {
   res.locals.user.getApiKeys(function(err, collectionResult) {
-    if(collectionResult.items.length === 0) {
+    pageData = {};
+    if (_.isEmpty(collectionResult.items)) {
       res.locals.user.createApiKey(function(err, apiKey) {
-        res.locals.apiKeyId = apiKey.id;
-        res.locals.apiKeySecret = apiKey.secret;
-        res.locals.username = res.locals.user.username;
-        apiKeyId = apiKey.id;
-        apiKeySecret = apiKey.secret;
-        res.render("dashboard");
-        return;
-      })
+        pageData.apiKey = apiKey;
+        render(res, pageData);
+      });
     } else {
-      collectionResult.each(function(apiKey) {
-        res.locals.apiKeyId = apiKey.id;
-        res.locals.apiKeySecret = apiKey.secret;
-        res.locals.username = res.locals.user.username;
-        apiKeyId = apiKey.id;
-        apiKeySecret = apiKey.secret;
-        res.render("dashboard");
-        return;
-      })
+      pageData.apiKey = _.first(collectionResult.items);
+      render(res, pageData);
     }
   });
 });

@@ -7,7 +7,6 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     kue = require('kue'),
     config = require('config'),
-    jwt = require('express-jwt'),
     stormpath = require('express-stormpath'),
     _ = require('lodash');
 

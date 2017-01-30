@@ -5,6 +5,15 @@
 [![Slack Status](https://slackin-c4sj.herokuapp.com/badge.svg)](https://slackin-c4sj.herokuapp.com/)
 [![Stories in Ready](https://badge.waffle.io/codeforsanjose/calidrought.svg?label=ready&title=Ready)](http://waffle.io/codeforsanjose/calidrought)
 
+**DEPRECATED**
+---
+
+I haven't committed to this project in a long time. It's somewhat complete and I enjoyed my time working on it.  With that being said, I've decided to try and pick it up again and rewrite it in Elixir and Phoenix. Why? Mostly because I hated writing Node.js code; I found most JavaScript tooling to be awful and none of the back-end frameworks particularly clicked with me. By using a language that I didn't enjoy writing code in made it hard to continuously work on this project and, of course, work priorities took over.
+
+Here's to 2017.
+
+See https://github.com/codeforsanjose/calidrought
+
 calidrought
 ===========
 

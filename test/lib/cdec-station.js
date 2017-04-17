@@ -29,7 +29,7 @@ describe('CDEC', function(){
       var hydroArea = 'CENTRAL COAST';
 
       cdec.fetchHydroAreaIDList(hydroArea, function(stationIDs){
-        _.map(stationIDs, function(id){
+        _.each(stationIDs, function(id){
           assert.match(id, /^[A-Z]{3}$/);
         });
 

@@ -14,8 +14,15 @@ var StationModel = thinky.createModel('Station', {
   nearbyCity:     type.string(),
   point:          type.point(),
   operator:       type.string()
-}, {
-  pk: 'stationID'
+});
+
+StationModel.pre('save', function(next) {
+    if (this.age < 18) {
+      next(new Error("A user must be at least 18 years old."));
+    }
+    else {
+      next();
+    }
 });
 
 module.exports = StationModel;

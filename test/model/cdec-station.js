@@ -16,6 +16,7 @@ describe('StationModel', function(){
         fixture
       );
 
+      station.validate();
       assert.equal(station, fixture);
       done();
     });

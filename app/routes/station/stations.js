@@ -53,6 +53,11 @@ router.post('/start', function(req, res) {
 
   queue.process('cdec-station', function(job) {
     cdec.fetchStation(job.data.stationID, function(stationData) {
+      try {
+        station.validate();
+      } catch(error) {
+        console.log(error.message);
+      }
       var station = new StationModel(
         stationData
       );

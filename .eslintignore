@@ -1,6 +1,6 @@
 /node_modules/
-app.js
 /kue/cdec-station.js
-/public
+/public/js/bootstrap.js
+/public/js/bootstrap.min.js
 /test/route
 /coverage

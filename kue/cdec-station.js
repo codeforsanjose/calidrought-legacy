@@ -1,6 +1,6 @@
-var kue = require('kue'),
-    station = require('../lib/preprocessor/cdec-station.js'),
-    jobs = kue.createQueue();
+var kue = require('kue')
+var station = require('../lib/preprocessor/cdec-station.js')
+var jobs = kue.createQueue()
 
 var CDECJobs = module.exports = {
   /**
@@ -8,20 +8,18 @@ var CDECJobs = module.exports = {
    *
    * @param {String} stationID
    */
-  createCDECJob: function(stationID) {
+  createCDECJob: function (stationID) {
     var job = jobs.create('cdec-station', {
-        title: 'collect cdec station metadata for ' + stationID,
-        stationID: stationID
+      title: 'collect cdec station metadata for ' + stationID,
+      stationID: stationID
 
-      } ).on( 'complete', function() {
-        console.log( 'job complete' );
-
-      } ).on( 'failed', function() {
-        console.log( 'job failed' );
-
-      } ).save( function(err){
-          if( !err ) console.log( job.id );
-      } );
+    }).on('complete', function () {
+      console.log('job complete')
+    }).on('failed', function () {
+      console.log('job failed')
+    }).save(function (err) {
+      if (!err) console.log(job.id)
+    })
   },
 
   /**
@@ -30,19 +28,17 @@ var CDECJobs = module.exports = {
    *
    * @param {Array} hydroAreas
    */
-  loadJobs: function(hydroAreas) {
+  loadJobs: function (hydroAreas) {
     var job = jobs.create('cdec-station-load', {
       title: 'collect cdec stations within hydro areas',
       hydroAreas: hydroAreas
 
-    } ).on( 'complete', function() {
-      console.log( 'job complete' );
-
-    } ).on( 'failed', function() {
-      console.log( 'job failed' );
-
-    } ).save( function(err){
-      if( !err ) console.log( job.id );
-    } );
+    }).on('complete', function () {
+      console.log('job complete')
+    }).on('failed', function () {
+      console.log('job failed')
+    }).save(function (err) {
+      if (!err) console.log(job.id)
+    })
   }
-};
+}
